@@ -117,6 +117,7 @@ class MaskFormer(nn.Module):
 
         weight_dict = {"loss_ce": class_weight, "loss_mask": mask_weight, "loss_dice": dice_weight}
 
+        # 向weight_dict中添加0~9层的loss，种类和原来的三种相同
         if deep_supervision:
             dec_layers = cfg.MODEL.MASK_FORMER.DEC_LAYERS
             aux_weight_dict = {}
